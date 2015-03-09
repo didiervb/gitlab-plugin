@@ -88,6 +88,11 @@ public class GitLabPushTrigger extends Trigger<AbstractProject<?, ?>> {
     public List<String> getAllowedBranches() {
     	return allowedBranches;
     }
+    
+    public boolean getAllowAllBranches() {
+        return allowAllBranches;
+    }
+    
 
     public void onPost(final GitLabPushRequest req) {
     	boolean allowBuild = allowAllBranches || (allowedBranches.isEmpty() || allowedBranches.contains(getSourceBranch(req)));
